@@ -160,4 +160,3 @@ Requer **Neovim 0.12+** e **ripgrep** (`sudo apt install ripgrep`).
 | Servidor | Linguagem |
 |---|---|
 | `vtsls` | TypeScript / JavaScript / React (TSX) |
-| `prismals` | Prisma Schema |

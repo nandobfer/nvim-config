@@ -74,7 +74,7 @@ require("lazy").setup({
       local ok, ts = pcall(require, "nvim-treesitter.configs")
       if ok then
         ts.setup({
-          ensure_installed = { "typescript", "tsx", "javascript", "lua", "prisma" },
+          ensure_installed = { "typescript", "tsx", "javascript", "lua" },
           highlight = { enable = true },
         })
       end
@@ -108,12 +108,10 @@ require("lazy").setup({
 if vim.lsp.config then
   vim.lsp.config("vtsls", {})
   vim.lsp.enable("vtsls")
-  vim.lsp.config("prismals", {})
-  vim.lsp.enable("prismals")
+
 else
   local lspconfig = require("lspconfig")
   lspconfig.vtsls.setup({})
-  lspconfig.prismals.setup({})
 end
 
 -- 5. Atalhos
