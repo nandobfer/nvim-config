@@ -1,6 +1,6 @@
 # nvim-config
 
-Configuração pessoal do Neovim otimizada para desenvolvimento TypeScript/React e Prisma.
+Configuração pessoal do Neovim otimizada para desenvolvimento TypeScript/React.
 Requer **Neovim 0.12+** e **ripgrep** (`sudo apt install ripgrep`).
 
 ---
@@ -18,7 +18,7 @@ Requer **Neovim 0.12+** e **ripgrep** (`sudo apt install ripgrep`).
 | `<leader>fg` | Buscar texto em todos os arquivos *(Ctrl+Shift+F no VSCode)* |
 | `<leader>fb` | Listar buffers abertos |
 
-### LSP — só funciona em arquivos com servidor ativo (`.ts`, `.tsx`, `.prisma`)
+### LSP — só funciona em arquivos com servidor ativo (`.ts`, `.tsx`)
 
 | Atalho | Ação |
 |---|---|
@@ -40,6 +40,7 @@ Requer **Neovim 0.12+** e **ripgrep** (`sudo apt install ripgrep`).
 |---|---|
 | `<leader>cp` | Copiar caminho relativo do arquivo atual |
 | `<leader>cP` | Copiar caminho absoluto do arquivo atual |
+| `<leader>cs` | Copiar seleção para clipboard *(modo Visual)* |
 
 ### Quickfix (lista de referências/erros)
 

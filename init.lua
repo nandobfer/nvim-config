@@ -119,6 +119,7 @@ vim.keymap.set("n", "<leader>e",  ":NvimTreeToggle<CR>", { desc = "Toggle árvor
 vim.keymap.set("n", "<leader>g",  ":Neogit<CR>",         { desc = "Abrir Neogit" })
 vim.keymap.set("n", "<leader>cp", function() vim.fn.setreg("+", vim.fn.expand("%"))    end, { desc = "Copiar caminho relativo" })
 vim.keymap.set("n", "<leader>cP", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end, { desc = "Copiar caminho absoluto" })
+vim.keymap.set("v", "<leader>cs", '"+y', { desc = "Copiar seleção para clipboard" })
 
 -- 6. LSP: keymaps ativos apenas quando um servidor está anexado ao buffer
 vim.api.nvim_create_autocmd("LspAttach", {
