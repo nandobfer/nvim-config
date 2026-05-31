@@ -137,12 +137,30 @@ end
 
 -- 5. Atalhos
 vim.keymap.set("n", "<leader>e",  ":NvimTreeToggle<CR>", { desc = "Toggle árvore de arquivos" })
-vim.keymap.set("n", "<leader>g",  ":Neogit<CR>",         { desc = "Abrir Neogit" })
+vim.keymap.set("n", "<leader>gg",  ":Neogit<CR>",         { desc = "Abrir Neogit" })
 vim.keymap.set("n", "<leader>cp", function() vim.fn.setreg("+", vim.fn.expand("%"))    end, { desc = "Copiar caminho relativo" })
 vim.keymap.set("n", "<leader>cP", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end, { desc = "Copiar caminho absoluto" })
 vim.keymap.set("v", "<leader>cs", '"+y', { desc = "Copiar seleção para clipboard" })
 
--- 6. LSP: keymaps ativos apenas quando um servidor está anexado ao buffer
+-- 6. @ File Picker: <leader>@ no modo normal insere @caminho no cursor
+vim.keymap.set("n", "<leader>@", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "@ Arquivo",
+    attach_mappings = function(prompt_bufnr, _)
+      local actions = require("telescope.actions")
+      local state   = require("telescope.actions.state")
+      actions.select_default:replace(function()
+        local sel = state.get_selected_entry()
+        actions.close(prompt_bufnr)
+        local path = sel and (sel[1] or sel.value) or ""
+        vim.api.nvim_put({ path }, "c", true, true)
+      end)
+      return true
+    end,
+  })
+end, { desc = "@ — File picker (insere @caminho)" })
+
+-- 7. LSP: keymaps ativos apenas quando um servidor está anexado ao buffer
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local map = function(key, fn, desc)
