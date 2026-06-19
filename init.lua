@@ -62,6 +62,27 @@ require("lazy").setup({
     config = true,
   },
 
+  -- Colorizer: Preview de cores hex e CSS
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {
+      filetypes = { "*" },
+      user_default_options = {
+        RGB = true,
+        RRGGBB = true,
+        names = true,
+        RRGGBBAA = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        mode = "background", -- 'background', 'foreground' ou 'virtualtext'
+        tailwind = true,
+      },
+    },
+  },
+
   -- Git: Neogit (só carrega ao abrir)
   {
     "NeogitOrg/neogit",
