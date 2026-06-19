@@ -42,7 +42,12 @@ require("lazy").setup({
   {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus" },
-    config = true,
+    opts = {
+      update_focused_file = {
+        enable = true,
+        update_root = false,
+      },
+    },
   },
 
   -- LSP: Mason (carrega no startup para instalar servidores)
